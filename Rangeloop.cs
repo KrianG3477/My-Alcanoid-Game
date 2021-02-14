@@ -6,7 +6,7 @@ using UnityEngine;
 public class Rangeloop : MonoBehaviour
 {
     [SerializeField]
-    private float range;
+    private float range = 8f;
     [SerializeField]
     private Transform trans;
     private float halfRange;
@@ -26,6 +26,6 @@ public class Rangeloop : MonoBehaviour
 
     private void Teleport()
     {
-        trans.position = new Vector2(trans.position.x * -0.9f , trans.position.y);
+        trans.position = new Vector3(trans.position.x * -0.9f , trans.position.y, trans.position.z);
     }
 }

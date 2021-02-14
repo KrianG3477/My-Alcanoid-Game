@@ -22,8 +22,6 @@ public class Bouncing : MonoBehaviour
     private Move move = null;
     [SerializeField]
     private Reflect reflect = null;
-    [SerializeField]
-    private Delete delete = null;
 
     private void Start()
     {
@@ -47,7 +45,6 @@ public class Bouncing : MonoBehaviour
         // 콜라이더 태그가 블록이면 스피트 n퍼센트 증가
         if (collision.gameObject.tag == "Block")
         {
-            delete.Invoke(collision);
             move.Speed += move.Speed * speedUpRate;
         }
 
