@@ -11,6 +11,13 @@ public class Rangeloop : MonoBehaviour
     private Transform trans;
     private float halfRange;
 
+    private bool IsRanged
+    {
+        get
+        {
+            return trans.position.x > halfRange || trans.position.x < -halfRange;
+        }
+    }
 
     private void Start()
     {
@@ -18,7 +25,7 @@ public class Rangeloop : MonoBehaviour
     }
     void Update()
     {
-        if(trans.position.x > halfRange || trans.position.x < -halfRange )
+        if (IsRanged)
         {
             Teleport();
         }
@@ -28,4 +35,11 @@ public class Rangeloop : MonoBehaviour
     {
         trans.position = new Vector3(trans.position.x * -0.9f , trans.position.y, trans.position.z);
     }
+
+    //public override bool Equals(object obj)
+    //{
+    //    return obj is Rangeloop rangeloop &&
+    //           base.Equals(obj) &&
+    //           IsRanged == rangeloop.IsRanged;
+    //}
 }

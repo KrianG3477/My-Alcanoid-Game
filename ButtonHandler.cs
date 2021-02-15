@@ -5,7 +5,7 @@ using UnityEngine;
 public class ButtonHandler : MonoBehaviour
 {
     [SerializeField]
-    private CtrPlayer ctrPlayer = null;
+    private PlayerManager ctrPlayer;
 
     public void LeftBtDoun()
     {

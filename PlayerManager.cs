@@ -1,11 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CtrPlayer : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
     [SerializeField]
-    Move move;
+    private Move move;
+
+    private float addDirect;
 
     private bool isLeftMove = false;
     private bool isRihtMove = false;
@@ -16,13 +19,13 @@ public class CtrPlayer : MonoBehaviour
 
     void Update()
     {
-        // PC 에서의 조작
-        move.Direction = new Vector2(0f + ((Input.GetKey(KeyCode.RightArrow) ? 1f : 0f)
-            - (Input.GetKey(KeyCode.LeftArrow) ? 1f : 0f)), 0f);
-
-        // 버튼으로의 조작
-        move.Direction = new Vector2(0f + (isRihtMove ? 1f : 0f) - (isLeftMove ? 1f : 0f), 0f);
+        // PC + 버튼 조작
+        move.Direction = new Vector2( AddDirect(), 0f);
     }
 
-
+    private float AddDirect()
+    {
+        addDirect = (Input.GetAxisRaw("Horizontal")) + ((isRihtMove ? 1f : 0f) - (isLeftMove ? 1f : 0f));
+        return addDirect;
+    }
 }

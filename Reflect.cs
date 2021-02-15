@@ -9,7 +9,8 @@ public class Reflect : MonoBehaviour
     // 법선 변수
     private Vector2 normalVector;
     private Vector2 barNomalVector;
-
+    [SerializeField]
+    private GameObject exGameObject;
 
     // direction 반사각으로 변경
     public Vector2 Invoke(Vector2 incomingV, Collision2D collision)
@@ -21,7 +22,7 @@ public class Reflect : MonoBehaviour
         Vector2 normalV = Vector2.zero;
         Vector2 direction = Vector2.zero;
 
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject == exGameObject)
         {
             Vector2 positionVecter = gameObject.transform.position - collision.transform.position ;
             direction = positionVecter.normalized;
@@ -33,7 +34,6 @@ public class Reflect : MonoBehaviour
             Vector2 reflectVector = Vector2.Reflect(incomingV, normalV);
             direction = reflectVector.normalized;
         }
-
         return direction;
     }
 }
