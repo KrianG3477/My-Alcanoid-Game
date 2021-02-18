@@ -6,20 +6,16 @@ using UnityEngine;
 public class BallSpowner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject Ball;
+    private GameObject ball;
 
-    private bool isBallAlive = false;
+    [SerializeField]
+    private GameObject ballSpownButton;
 
-
-    // Start is called before the first frame update
-    void Start()
+    public void MakeBall()
     {
-        
+        Instantiate(ball, new Vector3(0, 0, 0), Quaternion.identity);
+        ballSpownButton.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

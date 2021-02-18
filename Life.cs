@@ -7,18 +7,14 @@ public class Life : MonoBehaviour
     [SerializeField]
     private int lifePoint = 1;
 
-    private GameObject GameObject;
 
     [SerializeField]
-    private string objectName;
+    private string objectTag;
 
-    private void Start()
-    {
-        GameObject = GameObject.Find(objectName);
-    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject == GameObject)
+        if (collision.gameObject.tag == objectTag)
         {
             lifePoint -= 1;
 

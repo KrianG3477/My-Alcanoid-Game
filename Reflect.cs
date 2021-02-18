@@ -11,12 +11,8 @@ public class Reflect : MonoBehaviour
     private Vector2 barNomalVector;
 
     [SerializeField]
-    private GameObject playerGameObject;
+    private string GameObjectTag;
 
-    private void Start()
-    {
-        playerGameObject = GameObject.Find("Player_Bar");
-    }
 
     // direction 반사각으로 변경
     public Vector2 Invoke(Vector2 incomingV, Collision2D collision)
@@ -28,7 +24,7 @@ public class Reflect : MonoBehaviour
         Vector2 normalV = Vector2.zero;
         Vector2 direction = Vector2.zero;
 
-        if (collision.gameObject == playerGameObject)
+        if (collision.gameObject.tag == GameObjectTag)
         {
             Vector2 positionVecter = gameObject.transform.position - collision.transform.position ;
             direction = positionVecter.normalized;
