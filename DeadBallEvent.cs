@@ -7,7 +7,7 @@ public class DeadBallEvent : MonoBehaviour
     [SerializeField]
     GameObject ballSpownButton;
     [SerializeField]
-    PlayerHeart PlayerHeart;
+    PlayerHeartEvents PlayerHeart;
     [SerializeField]
     private string tagName = "Ball";
 
@@ -16,8 +16,10 @@ public class DeadBallEvent : MonoBehaviour
     {
         if (collision.gameObject.tag == tagName)
         {
-        ballSpownButton.SetActive(true);
-        PlayerHeart.Heart -= 1;
+            PlayerHeart.Heart -= 1;
+            
+            if (PlayerHeart.Heart > 0)
+                ballSpownButton.SetActive(true);
         }
     }
 }

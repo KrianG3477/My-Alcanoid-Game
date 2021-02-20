@@ -19,7 +19,7 @@ public class SpriteChanger : MonoBehaviour
     [SerializeField]
     private float waitSeconds = 0.5f;
     [SerializeField]
-    PlayerHeart playerHeart;
+    PlayerHeartEvents playerHeart;
 
     [SerializeField]
     private int survivHp = 1;

@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class PlayerHeart : MonoBehaviour
+public class PlayerHeartEvents : MonoBehaviour
 {
     private int heart = 3;
+
+    [SerializeField]
+    private UnityEvent noHeartEvent;
 
     public int Heart { get => heart; set => heart = value; }
 
@@ -16,16 +20,11 @@ public class PlayerHeart : MonoBehaviour
     private GameObject hp3Heart;
 
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        if (heart <= 0f)
+        {
+            noHeartEvent.Invoke();
+        }
     }
 }
