@@ -25,7 +25,9 @@ public class PlayerManager : MonoBehaviour
 
     private float AddDirect()
     {
-        addDirect = (Input.GetAxisRaw("Horizontal")) + ((isRihtMove ? 1f : 0f) - (isLeftMove ? 1f : 0f));
+        Vector2 raw = Vector2.zero;
+        raw.x = Input.GetAxisRaw("Horizontal");
+        addDirect = (raw.normalized.x) + ((isRihtMove ? 1f : 0f) - (isLeftMove ? 1f : 0f));
         return addDirect;
     }
 }

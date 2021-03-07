@@ -22,7 +22,13 @@ public class ScoreManager : MonoBehaviour
     private uint score = 0;
 
     public uint Score { get => score; set => score = value; }
-
+    public uint FinalScore
+    {
+        get
+        {
+            return finalScore;
+        }
+    }
 
     void Update()
     {
